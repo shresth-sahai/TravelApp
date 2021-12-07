@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="navbar">
+            <h1>My trip Details:-</h1>
+        </div>
+            <h2 class="trip">{{placeObj.fromPlace}} to {{placeObj.toPlace}}</h2>
+            <h2>Happy Journey!!! Enjoy the trip!</h2>
+            <div class="sub-head"><h3>Train Info:-</h3></div>
+            <div class="trains-wrap">
+            {{#each trainData}}
+            <div class="train-card">
+                <div class="train-data">
+                    <div class="train-run">
+                        <div class="train-name-info">
+                            <div>Train Name: {{this.trainName}}</div>
+                            <div>Train Dept No: {{this.trainDeptNo}}</div>
+                            <div>Train Departure Time: {{this.departTime}}</div>
+                            <div>Train Arrival Time: {{this.arrivalTime}}</div>
+                        </div>
+
+                        <div class="train-run-info">
+                            <div>From Station: {{this.fromStaion}}</div>
+                            <div>To Station: {{this.toStation}}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="train-status-price">
+                        {{#each this.railClass}}
+                        <div class="rail-class">
+                            <div>Rail Class Name: {{this.railClassName}}</div>
+                            <div>Ticket Price: {{this.ticketPrice}}</div>
+                            <div>Availabe Seats: {{this.availableSeats}}</div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            </div>
+        
+        <div class="sub-head"><h3 class="hotels">Recommended Hotels For You</h3></div>
+
+        <div class="hotels-wrap">
+            {{#each hotelData}}
+            <div class="hotel-card">
+                <div class="hotel-name">{{this.hotelName}}</div>
+                <div class="hotel-image"><img src={{this.imgUrl}} width="350" height="225"></div>
+                <div class="hotel-address">Address: {{this.hotelAddress}}</div>
+                <div class="hotel-price">Price: {{this.hotelPrice}}</div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="sub-head"><h3 class="tourist-places">Top 5 Places You might like to visit</h3></div>
+
+        <div class="tourist-places-wrap">
+            {{#each touristSpots}}
+            <div class="place-card">
+                <div class="place-name">{{this.placeName}}</div>
+                <div class="place-img"><img src={{this.imageURL}} width = "500" height = "300"></div>
+                <div class="place-desc">{{this.placeDesc}}</div>
+            </div>
+            {{/each}}
+        </div>
+        <h2 class="end-quote">See You later Alligator!!!</h2>
+    </div>
+</body>
+
+</html>
